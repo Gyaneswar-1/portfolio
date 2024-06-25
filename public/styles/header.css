@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+}
+.main-nav{
+    width: 100%;
+    background-color: #648374;
+    padding: 18px 18px 18px 18px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  
+}
+
+.options{
+    list-style: none;
+    width: 100%;
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-wrap: wrap;
+
+}
+#Main-head {
+    font-size:1.7rem;
+    font-weight: 800;
+}
+#Main-head > a{
+    font-family:"Cinzel" ;
+    
+}
+.options > li > a{
+    color: black;
+    text-decoration: none;
+    padding-left: 25px;
+}
+.options > li > a:hover{
+    color: wheat;
+}
+.options li:first-child{
+    margin-right: auto;
+}
+.sidebar{
+    padding-top: 30px;
+    gap: 30px;
+    padding-left: 2%;
+    text-decoration: none;
+    font-size: 1.5rem;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 250px;
+    z-index: 999;
+    background-color: rgba(188, 255, 188, 0.488);
+    backdrop-filter: blur(10px);
+    display: none;
+    box-shadow: -10px 0px 10px black;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    
+}
+.menubtn{
+    display: none;
+}
+li>a{
+    text-decoration: none;
+    color: black;
+}
+.sidebar li{
+    width: 100%;
+    list-style: none;
+}
+.sidebar a{
+    width: 100%;
+}
+@media(max-width:800px)
+{
+    .hideOnMobile{
+        display: none;
+    }
+    .menubtn{
+        display: block;
+    }
+}
+@media(max-width:400px){
+    .sidebar{
+        width: 100%;
+    }
+}
+
+/* #6c7b65 */
+/* #a0d490 */

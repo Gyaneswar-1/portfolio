@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/header.css" />
+    <link rel="stylesheet" href="styles/skills.css" />
+    <link rel="stylesheet" href="styles/footer.css" />
+    <style>
+      * {
+        -webkit-user-select: none; /* Safari */
+        -ms-user-select: none; /* IE 10 and IE 11 */
+        user-select: none; /* Standard syntax */
+      }
+    </style>
+  </head>
+  <body>
+    <%- include("partials/header.ejs") %>
+
+    <main>
+      <div class="blocks">
+        <div class="block1 blo">
+          <img src="svg/atom.svg" alt="" />
+          <h2>React</h2>
+          <p>
+            Build scalable components, managed state efficiently, and leveraged
+            hooks for a dynamic functionality.
+          </p>
+        </div>
+        <div class="block2 blo">
+          <img src="svg/build_black_24dp.svg" alt="" />
+          <h2>api Building</h2>
+          <p>
+            Engineered RESTful APIs, with express authenticated endpoints and
+            optimized data retrieval for efficiency.
+          </p>
+        </div>
+        <div class="block3 blo">
+          <img src="/svg/css.svg" alt="" />
+          <h2>Casceding style sheat</h2>
+          <p>
+            Master flexbox and grid layouts implemented animation and customize
+            style for pixel perfect designs.
+          </p>
+        </div>
+        <div class="block4 blo">
+          <img src="svg/db.svg" alt="" />
+          <h2>Database</h2>
+          <p>
+            Architecture to normalize schema fine tuned sql queries and
+            implemented indexing for high performance strategy travel
+          </p>
+        </div>
+        <div class="block5 blo">
+          <img src="svg/github.svg" alt="" />
+          <h2>Github</h2>
+          <p>Liberated version controlled collaborated seamlessly</p>
+        </div>
+        <div class="block6 blo">
+          <img src="svg/html.svg" alt="" />
+          <h2>Hyper text markup language</h2>
+          <p>
+            Crafted semantic markup optimize accessibility and structured
+            content for your web experience.
+          </p>
+        </div>
+        <div class="block7 blo">
+          <img src="svg/world.svg" alt="" />
+          <h2>Deploying.</h2>
+          <p>
+            Streamlined web development pipelines. optimized performance ensure
+            reliability for flowless online experience
+          </p>
+        </div>
+        <div class="block8 blo">
+          <img src="svg/js.svg" alt="" />
+          <h2>Javascript</h2>
+          <p>
+            Mustard ES6 syntax utilize modern framework and libraries dynamic.
+            web development functionality.
+          </p>
+        </div>
+        <div class="block9 blo">
+          <img src="svg/node.svg" alt="" />
+          <h2>Node.js</h2>
+          <p>
+            Developed scalable server side application utilized mpm packages and
+            implemented real time communication for robust solutions.
+          </p>
+        </div>
+      </div>
+    </main>
+
+    <%- include("partials/footer.ejs") %>
+  </body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/header.css" />
+    <link rel="stylesheet" href="styles/Aboutme.css" />
+    <link rel="stylesheet" href="styles/footer.css" />
+    <style>
+      * {
+        -webkit-user-select: none; /* Safari */
+        -ms-user-select: none; /* IE 10 and IE 11 */
+        user-select: none; /* Standard syntax */
+      }
+    </style>
+  </head>
+  <body>
+    <%- include("partials/header.ejs") %>
+
+    <main>
+      <div class="main-container">
+        <div class="main-div-1 inner-div">
+          <img src="images/batman.png" alt="" />
+        </div>
+        <div class="main-div-2 inner-div">
+          <h1><i>About me</i></h1>
+          <p>
+            Hii i am Gyaneswar A passionate BCA student from India. delving deep
+            into the world of a web development with fervent enthusiasm for
+            creating digital experience. i have Skills in
+            Html,css,javascript,nodeJS,express,react and Mongodb.Let's
+            collaborate to turn your digital dreams into reality.
+          </p>
+          <div class="btns">
+            <button class="btn1 btn"><a href="assets/Untitled-resume.pdf">Download cv</a></button>
+            <button class="btn2 btn"><a href="/contact">Hire me</a></button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <%- include("partials/footer.ejs") %>
+  </body>
+</html>

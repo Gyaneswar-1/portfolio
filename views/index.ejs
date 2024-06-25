@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/header.css" />
+    <link rel="stylesheet" href="styles/home-body.css" />
+    <link rel="stylesheet" href="styles/footer.css" />
+    <title>Document</title>
+    <style>
+      * {
+        -webkit-user-select: none; /* Safari */
+        -ms-user-select: none; /* IE 10 and IE 11 */
+        user-select: none; /* Standard syntax */
+      }
+    </style>
+  </head>
+  <body>
+    <%- include("partials/header.ejs") %>
+    <main>
+      <div class="main-div">
+        <div class="secondary-div sd1">
+          <h1>
+            Hii, it's me <br />
+            <span class="name">Gyaneswar Rout</span>
+          </h1>
+          <h3>& i am a <span class="auto-type"></span></h3>
+          <p class="about-me">
+            Welcome To my world of web development mastery. Explore an array of projects, focusing my expertise in front and back in development from visually stunning website to complex web applications. Each project demonstrate my dedication to excellence and innovation. It is bring your digital vision to life together.
+          </p>
+          <div class="btns">
+            <button class="book-a-call">
+              <a href="assets/Untitled-resume.pdf">Download cv</a>
+            </button>
+            <a href="#">my projects</a>
+          </div>
+        </div>
+
+        <div class="secondary-div sd2">
+          <img src="images/meSquere.png" alt="" />
+        </div>
+      </div>
+      <%- include("partials/footer.ejs") %>
+    </main>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script>
+      var typed = new Typed(".auto-type", {
+        strings: ["Programmer", "Designer", "gamer",""],
+        typeSpeed: 130,
+        backSpeed: 40,
+        loop: true,
+      });
+    </script>
+  </body>
+</html>

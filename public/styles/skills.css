@@ -1,0 +1,137 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  color: whitesmoke;
+  font-family: "Poppins", "Montserrat";
+}
+.main-nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+body {
+  background-color: #101916;
+  /* overflow: hidden; */
+}
+
+.blocks {
+  padding-top: 30px;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: #101916;
+  width: 100%;
+  height: 657px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  gap: 10px;
+}
+.blo {
+  padding: 10px;
+  background-color: #4c6a60;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+  font-size: xx-small;
+  text-align: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+.blo > h2 {
+  font-family: Cinzel;
+  color: #cee162;
+}
+.blo > img {
+  height: 3rem;
+}
+.blo > p {
+  font-size: 1.1rem;
+}
+.blo:hover {
+  color: #244138;
+  background-color: #548b868f;
+}
+.block1 {
+  grid-row: span 2;
+}
+.block2 {
+  grid-row: span 3;
+  grid-column: span 2;
+}
+.block3 {
+  grid-column: span 3;
+}
+.block4 {
+  grid-column: span 2;
+}
+.block5 {
+  grid-row: span 4;
+}
+
+.block7 {
+  grid-row: span 3;
+}
+.block8 {
+  grid-row: span 3;
+}
+.block9 {
+  grid-row: span 2;
+  grid-column: span 3;
+}
+
+@media (max-width: 1500px) {
+  .block2 {
+    font-size: xx-small;
+    grid-row: span 2;
+    grid-column: span 1;
+  }
+  .block3 {
+    grid-column: span 1;
+  }
+}
+@media (max-width: 1440px) {
+  .block9 {
+    grid-column: span 1;
+    grid-row: span 2;
+  }
+  .block1 {
+    grid-row: span 1;
+  }
+  .block5 {
+    grid-row: span 3;
+  }
+  .block7 {
+    grid-row: span 2;
+  }
+  .block8{
+    grid-row: span 2;    
+  }
+  /* .block2{
+    grid-row: span 3;
+
+  }
+  .block6{
+    grid-row: span 3;
+
+  } */
+}
+@media (max-width: 1000px) {
+  .blocks {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  }
+  .blo {
+    grid-row: unset !important;
+    grid-column: unset !important;
+    height: 100%;
+  }
+  .blocks {
+    padding: 30px;
+    padding-bottom: 100px;
+    height: auto;
+  }
+}

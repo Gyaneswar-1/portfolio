@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/header.css" />
+    <link rel="stylesheet" href="styles/contactMe.css" />
+    <link rel="stylesheet" href="styles/footer.css" />
+    <style>
+      * {
+        -webkit-user-select: none; /* Safari */
+        -ms-user-select: none; /* IE 10 and IE 11 */
+        user-select: none; /* Standard syntax */
+      }
+    </style>
+  </head>
+  <body>
+    <%- include("partials/header.ejs") %>
+    <main>
+      <div class="container">
+        <div class="first-div">
+          <div class="contacts">
+            <div class="gmail el">
+              <img src="svg/mail.svg" class="svgs" alt="" />
+              <i
+                ><a
+                  style="color: white; text-decoration: none"
+                  href="gyaneswarrout123@gmail.com"
+                  >gyaneswar..@gmail.com</a
+                ></i
+              >
+            </div>
+            <div class="phone el">
+              <img src="svg/phone.svg" class="svgs" alt="" />
+              <i>+91 8260 3487 52</i>
+            </div>
+
+            <div class="address el">
+              <img src="svg/home.svg" class="svgs" alt="" />
+              <i>Earth</i>
+            </div>
+          </div>
+        </div>
+        <div class="second-div">
+          <h2>Enter your details</h2>
+          <div class="formbold-main-wrapper">
+            <!-- Author: FormBold Team -->
+            <!-- Learn More: https://formbold.com -->
+            <div class="formbold-form-wrapper">
+              <form action="https://formbold.com/s/FORM_ID" method="POST" class="form">
+                <div class="formbold-input-flex">
+                  <div>
+                    <input
+                      type="text"
+                      name="firstname"
+                      id="firstname"
+                      placeholder="Jane"
+                      class="formbold-form-input"
+                    />
+                    <label for="firstname" class="formbold-form-label">
+                      First name
+                    </label>
+                  </div>
+                  <div>
+                    <input
+                      type="text"
+                      name="lastname"
+                      id="lastname"
+                      placeholder="Cooper"
+                      class="formbold-form-input"
+                    />
+                    <label for="lastname" class="formbold-form-label">
+                      Last name
+                    </label>
+                  </div>
+                </div>
+
+                <div class="formbold-input-flex">
+                  <div>
+                    <input
+                      type="email"
+                      name="email"
+                      id="email"
+                      placeholder="jhon@mail.com"
+                      class="formbold-form-input"
+                    />
+                    <label for="email" class="formbold-form-label">
+                      Mail
+                    </label>
+                  </div>
+                  <div>
+                    <input
+                      type="text"
+                      name="phone"
+                      id="phone"
+                      placeholder="(319) 555-0115"
+                      class="formbold-form-input"
+                    />
+                    <label for="phone" class="formbold-form-label">
+                      Phone
+                    </label>
+                  </div>
+                </div>
+
+                <div class="formbold-textarea">
+                  <textarea
+                    rows="6"
+                    name="message"
+                    id="message"
+                    placeholder="Write your message..."
+                    class="formbold-form-input"
+                  ></textarea>
+                  <label for="message" class="formbold-form-label">
+                    Message
+                  </label>
+                </div>
+
+                <button class="formbold-btn">Send Message</button>
+              </form>
+            </div>
+          </div>
+          <style></style>
+        </div>
+      </div>
+    </main>
+    <%- include('partials/footer.ejs') %>
+  </body>
+</html>
