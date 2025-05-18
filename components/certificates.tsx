@@ -14,10 +14,10 @@ export default function Certificates() {
   const certificates = [
     {
       id: 1,
-      title: "React Developer Certification",
-      issuer: "Meta",
-      date: "2023",
-      image: "/placeholder.svg?height=600&width=800",
+      title: "Next.js Fundamentals",
+      issuer: "Frontend Masters",
+      date: "2025",
+      image: "/certificate/Nextjs.png",
     },
     {
       id: 2,
