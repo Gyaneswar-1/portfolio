@@ -11,7 +11,7 @@ export default function About() {
         <div className="grid md:grid-cols-2 gap-8 items-center">
           <div className="flex justify-center">
             <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-primary/20">
-              <Image src="/placeholder.svg?height=320&width=320" alt="Profile" fill className="object-cover" />
+              <Image src="/me.jpg" alt="Profile" fill className="object-cover" />
             </div>
           </div>
           <div>
@@ -33,7 +33,7 @@ export default function About() {
                   </div>
                   <div>
                     <p className="font-medium">Email:</p>
-                    <p className="text-muted-foreground">gyaneswarrout12345@gmail.com</p>
+                    <p className="text-muted-foreground break-words">gyaneswarrout12345@gmail.com</p>
                   </div>
                   <div>
                     <p className="font-medium">Location:</p>

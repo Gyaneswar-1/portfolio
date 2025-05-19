@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import { ArrowDown, Github, Linkedin, Mail } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
+import Link from "next/link"
 
 export default function Hero() {
   const [typedText, setTypedText] = useState("")
@@ -61,16 +62,22 @@ export default function Hero() {
       </div>
       <div className="flex gap-4">
         <Button variant="ghost" size="icon" className="rounded-full">
+         <Link href={"https://github.com/Gyaneswar-1"} >
           <Github className="h-5 w-5" />
           <span className="sr-only">GitHub</span>
+         </Link>
         </Button>
         <Button variant="ghost" size="icon" className="rounded-full">
+         <Link href={"https://www.linkedin.com/in/gyaneswar-rout-93u/"}>
           <Linkedin className="h-5 w-5" />
           <span className="sr-only">LinkedIn</span>
+         </Link>
         </Button>
         <Button variant="ghost" size="icon" className="rounded-full">
+          <Link href={"https://mail.google.com/mail/?view=cm&fs=1&to=gyaneswarrout12345@gmail.com&su=Project%20Inquiry&body=Hi%20Gyaneswar%2C%0A%0AI%27m%20interested%20in%20connecting%20with%20you%20regarding%20a%20project.%20Please%20let%20me%20know%20a%20good%20time%20to%20talk."}>
           <Mail className="h-5 w-5" />
           <span className="sr-only">Email</span>
+          </Link>
         </Button>
       </div>
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">

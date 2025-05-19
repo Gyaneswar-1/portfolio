@@ -30,12 +30,12 @@ export default function Projects() {
       codeLink: "#",
     },
     {
-      title: "Portfolio Website",
-      description: "A responsive portfolio website template for developers and designers to showcase their work.",
-      image: "/placeholder.svg?height=400&width=600",
-      tags: ["Next.js", "Tailwind CSS", "Framer Motion"],
+      title: "Blog Website",
+      description: "A responsive blog website for developers and designers to showcase their work.",
+      image: "/project/Bloggger.png",
+      tags: ["React.js", "Tailwind CSS", "Cloudinary"],
       demoLink: "#",
-      codeLink: "#",
+      codeLink: "https://github.com/Gyaneswar-1/Bloggger",
     },
     {
       title: "Weather Dashboard",
@@ -93,10 +93,10 @@ export default function Projects() {
               <CardFooter className="mt-auto">
                 <div className="flex gap-4 w-full">
                   <Button asChild className="flex-1">
-                    <a href={project.demoLink} target="_blank" rel="noopener noreferrer">
+                    {project.demoLink!=="#" && <a href={project.demoLink} target="_blank" rel="noopener noreferrer">
                       <ExternalLink className="mr-2 h-4 w-4" />
                       Demo
-                    </a>
+                    </a>}
                   </Button>
                   <Button variant="outline" asChild className="flex-1">
                     <a href={project.codeLink} target="_blank" rel="noopener noreferrer">

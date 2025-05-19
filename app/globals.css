@@ -1,7 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Exile&family=Lobster&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* h1 {
+  font-family: Exile; 
+} */
+/* h1 {
+  font-family: "Dancing Script", cursive; 
+} */
+h1 {
+  font-family: "Lobster", cursive; 
+}
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -27,7 +37,7 @@
   }
 
   .dark {
-    --background: 240 10% 3.9%;
+    --background: 245 10% 3.9%;
     --foreground: 0 0% 98%;
     --card: 240 10% 3.9%;
     --card-foreground: 0 0% 98%;

@@ -74,7 +74,7 @@ export default function Certificates() {
       issuer: "LinkedIn Learning",
       date: "2023",
       image: "/placeholder.svg?height=600&width=800",
-    },
+    }, 
   ]
 
   // Display only the first 6 certificates initially
