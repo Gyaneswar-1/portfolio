@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button"
 import ThemeToggle from "@/components/theme-toggle"
 import { cn } from "@/lib/utils"
 
+
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
@@ -53,7 +54,7 @@ export default function Navbar() {
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between h-16">
           <div className="flex-shrink-0">
-            <h1 className="text-xl font-bold">Gyaneswar Rout</h1>
+            <h2 className="text-xl font-bold text-primary"></h2>
           </div>
 
           <div className="hidden md:block">

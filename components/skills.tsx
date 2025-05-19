@@ -1,6 +1,8 @@
 import { Code, Database, Figma, FileJson, Globe, Layers, LayoutGrid, Palette, Server, Smartphone } from "lucide-react"
-
+import { motion } from "motion/react";
+import { useState } from "react";
 export default function Skills() {
+  const [text,setText] = useState(false)
   const skills = [
     { name: "Java", link: "/tools/Java.png" },
     { name: "JavaScript", link: "/tools/Javascript.png" },
@@ -31,8 +33,8 @@ export default function Skills() {
               key={index}
               className="flex  flex-col items-center justify-center p-6 bg-card rounded-lg border border-border hover:border-primary/50 hover:shadow-md transition-all cursor-crosshair"
             >
-              <img src={skill.link} alt="" className="h-8  mb-2"/>
-              <h3 className="font-medium text-center">{skill.name}</h3>
+              <motion.img  initial={{scale:1}} whileHover={{scale:1.9}} src={skill.link} alt="" className="h-8  mb-2"/>
+              <motion.h3  className="font-medium text-center"  >{skill.name}</motion.h3>
             </div>
           ))}
         </div>

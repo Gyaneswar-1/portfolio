@@ -1,5 +1,6 @@
-import { Card, CardContent } from "@/components/ui/card"
-import Image from "next/image"
+import { Card, CardContent } from "@/components/ui/card";
+import Image from "next/image";
+import { motion } from "motion/react";
 
 export default function About() {
   return (
@@ -11,20 +12,30 @@ export default function About() {
         <div className="grid md:grid-cols-2 gap-8 items-center">
           <div className="flex justify-center">
             <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-primary/20">
-              <Image src="/me.jpg" alt="Profile" fill className="object-cover" />
+              <Image
+                src="/me.jpg"
+                alt="Profile"
+                fill
+                className="object-cover"
+              />
             </div>
           </div>
           <div>
             <Card>
               <CardContent className="p-6">
-                <h3 className="text-2xl font-semibold mb-4">Web Developer & UI/UX Enthusiast</h3>
+                <h3 className="text-2xl font-semibold mb-4">
+                  Web Developer & UI/UX Enthusiast
+                </h3>
                 <p className="text-muted-foreground mb-4">
-                  I'm a passionate web developer with 5 years of experience creating modern web applications. I
-                  specialize in React.js, Next.js, and Tailwind CSS to build responsive and user-friendly interfaces.
+                  I'm a passionate web developer with 5 years of experience
+                  creating modern web applications. I specialize in React.js,
+                  Next.js, and Tailwind CSS to build responsive and
+                  user-friendly interfaces.
                 </p>
                 <p className="text-muted-foreground mb-6">
-                  My journey in web development started when I built my first website in college. Since then, I've
-                  worked with startups and established companies to bring their ideas to life.
+                  My journey in web development started when I built my first
+                  website in college. Since then, I've worked with startups and
+                  established companies to bring their ideas to life.
                 </p>
                 <div className="grid grid-cols-2 gap-4">
                   <div>
@@ -33,7 +44,9 @@ export default function About() {
                   </div>
                   <div>
                     <p className="font-medium">Email:</p>
-                    <p className="text-muted-foreground break-words">gyaneswarrout12345@gmail.com</p>
+                    <p className="text-muted-foreground break-words">
+                      gyaneswarrout12345@gmail.com
+                    </p>
                   </div>
                   <div>
                     <p className="font-medium">Location:</p>
@@ -50,5 +63,5 @@ export default function About() {
         </div>
       </div>
     </section>
-  )
+  );
 }
