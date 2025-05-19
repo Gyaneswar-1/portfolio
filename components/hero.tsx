@@ -5,12 +5,20 @@ import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
-import { motion } from "motion/react";
+import { AnimatePresence, motion } from "motion/react";
 
 export default function Hero() {
   const [typedText, setTypedText] = useState("");
   const fullText = "Web Developer";
   const [index, setIndex] = useState(0);
+  const [textindex, settextIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      settextIndex((prev) => (prev + 1) % helloText.length);
+    }, 1000); 
+    return () => clearInterval(interval);
+  }, []);
 
   useEffect(() => {
     if (index < fullText.length) {
@@ -30,16 +38,41 @@ export default function Hero() {
     }
   };
 
+  const helloText = [
+    "Hello", // English
+    "नमस्ते", // Hindi
+    "ନମସ୍କାର", // Odia
+    "নমস্কাৰ", // Assamese
+    "வணக்கம்", // Tamil
+    "नमस्कार", // Marathi
+    "ഹലോ", // Malayalam
+    "नमस्कार", // Konkani
+    "హలో", // Telugu
+    "હેલ્લો", // Gujarati
+    "ಹಲೋ", // Kannada
+    "ਹੈਲੋ", // Punjabi
+    "হ্যালো", // Bengali
+    "ਨਮਸਤੇ", // Dogri
+    "ہیلو", // Urdu
+  ];
+
   return (
     <section className="relative h-screen flex flex-col items-center justify-center text-center px-4 md:px-6">
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/20 via-background to-background"></div>
       <h1 className="text-4xl md:text-6xl font-bold tracking-tighter mb-4">
-        Hi, I'm{" "}
-        <motion.span
-          initial={{ scale: 1.0 }}
-          drag
-          className="text-primary"
-        >
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={textindex}
+            initial={{ x: -50, opacity: 0.5 }}
+            animate={{ x: 0, opacity: 1 }}
+            exit={{ x: 50, opacity: 0 }}
+            transition={{ duration: 1.6 }}
+          >
+            {helloText[textindex]}
+          </motion.div>
+        </AnimatePresence>
+        I'm{" "}
+        <motion.span initial={{ scale: 1.0 }} drag className="text-primary">
           Gyaneswar Rout
         </motion.span>
       </h1>

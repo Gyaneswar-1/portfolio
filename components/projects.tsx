@@ -7,6 +7,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Badge } from "@/components/ui/badge"
 import Image from "next/image"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog"
+import {motion} from "motion/react"
 
 export default function Projects() {
   const [showAllProjects, setShowAllProjects] = useState(false)
@@ -76,6 +77,7 @@ export default function Projects() {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {displayedProjects.map((project, index) => (
             <Card key={index} className="overflow-hidden flex flex-col h-full">
+               <motion.div initial={{scale:0.1,opacity:0.5}} whileInView={{scale:0.96,opacity:1}} whileHover={{scale:1}} >
               <div className="relative h-48 w-full">
                 <Image src={project.image || "/placeholder.svg"} alt={project.title} fill className="object-cover" />
               </div>
@@ -106,6 +108,7 @@ export default function Projects() {
                   </Button>
                 </div>
               </CardFooter>
+           </motion.div>
             </Card>
           ))}
         </div>

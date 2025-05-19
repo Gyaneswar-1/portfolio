@@ -1,19 +1,34 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { Menu, X } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import ThemeToggle from "@/components/theme-toggle"
-import { cn } from "@/lib/utils"
-
+import { useState, useEffect } from "react";
+import { Menu, X } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import ThemeToggle from "@/components/theme-toggle";
+import { cn } from "@/lib/utils";
+import { AnimatePresence, motion } from "motion/react";
 
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [greeting, setGreeting] = useState("");
 
-  const toggleMenu = () => setIsOpen(!isOpen)
+  useEffect(() => {
+    const hour = new Date().getHours();
 
-  const navItems:any[] = [
+    if (hour >= 5 && hour < 12) {
+      setGreeting("Good Morning 🌄");
+    } else if (hour >= 12 && hour < 17) {
+      setGreeting("Good Afternoon 🌤️");
+    } else if (hour >= 17 && hour < 21) {
+      setGreeting("Good Evening 🌆");
+    } else {
+      setGreeting("Good Night 🌃");
+    }
+  }, []);
+
+  const toggleMenu = () => setIsOpen(!isOpen);
+
+  const navItems: any[] = [
     // { name: "Home", href: "#" },
     // { name: "About", href: "#about" },
     // { name: "Skills", href: "#skills" },
@@ -21,40 +36,47 @@ export default function Navbar() {
     // { name: "Certificates", href: "#certificates" },
     // { name: "Timeline", href: "#timeline" },
     // { name: "Contact", href: "#contact" },
-  ]
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 50) {
-        setScrolled(true)
+        setScrolled(true);
       } else {
-        setScrolled(false)
+        setScrolled(false);
       }
-    }
+    };
 
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const handleNavClick = (href: string) => {
-    setIsOpen(false)
-    const element = document.querySelector(href)
+    setIsOpen(false);
+    const element = document.querySelector(href);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" })
+      element.scrollIntoView({ behavior: "smooth" });
     }
-  }
+  };
 
   return (
     <nav
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        scrolled ? "bg-background/80 backdrop-blur-md shadow-sm" : "bg-transparent",
+        scrolled
+          ? "bg-background/80 backdrop-blur-md shadow-sm"
+          : "bg-transparent"
       )}
     >
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between h-16">
           <div className="flex-shrink-0">
-            <h2 className="text-xl font-bold text-primary"></h2>
+            <motion.h1
+              className="text-xl font-bold text-primary"
+              initial={{ scale: 1.4 }}
+            >
+              {greeting}
+            </motion.h1>
           </div>
 
           <div className="hidden md:block">
@@ -78,7 +100,6 @@ export default function Navbar() {
           </div>
         </div>
       </div>
-
     </nav>
-  )
+  );
 }

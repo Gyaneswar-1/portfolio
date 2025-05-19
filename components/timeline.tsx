@@ -1,8 +1,9 @@
-"use client"
-import { Briefcase, GraduationCap } from "lucide-react"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { useEffect, useState } from "react"
+"use client";
+import { Briefcase, GraduationCap } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { useEffect, useState } from "react";
+import { motion } from "motion/react";
 
 export default function Timeline() {
   const [isMobile, setIsMobile] = useState(false);
@@ -24,7 +25,8 @@ export default function Timeline() {
       title: "Bachelor of Science in Computer Science",
       organization: "University of Technology",
       duration: "2016 - 2020",
-      description: "Graduated with honors. Specialized in web development and user interface design.",
+      description:
+        "Graduated with honors. Specialized in web development and user interface design.",
       icon: <GraduationCap className="h-6 w-6" />,
       year: 2020,
     },
@@ -34,7 +36,8 @@ export default function Timeline() {
       title: "Junior Web Developer",
       organization: "Tech Startup Inc.",
       duration: "2020 - 2021",
-      description: "Developed responsive websites and implemented UI components using React.js and CSS frameworks.",
+      description:
+        "Developed responsive websites and implemented UI components using React.js and CSS frameworks.",
       icon: <Briefcase className="h-6 w-6" />,
       year: 2020,
     },
@@ -44,7 +47,8 @@ export default function Timeline() {
       title: "Master's in User Experience Design",
       organization: "Design Institute",
       duration: "2021 - 2022",
-      description: "Focused on creating intuitive and accessible user interfaces for web applications.",
+      description:
+        "Focused on creating intuitive and accessible user interfaces for web applications.",
       icon: <GraduationCap className="h-6 w-6" />,
       year: 2022,
     },
@@ -70,7 +74,7 @@ export default function Timeline() {
       icon: <Briefcase className="h-6 w-6" />,
       year: 2023,
     },
-  ]
+  ];
 
   return (
     <section id="timeline" className="py-20 px-4 md:px-6 bg-muted/50">
@@ -81,9 +85,17 @@ export default function Timeline() {
 
         {isMobile ? (
           // Mobile view - vertical timeline
-          <div className="space-y-6">
+          <motion.div
+            className="space-y-6"
+            initial={{ scale: 1, opacity: 0.5, translateX: 12 }}
+            whileInView={{ scale: 1, opacity: 1, translateX: 0 }}
+            whileHover={{ scale: 1.05 }}
+          >
             {timelineItems.map((item) => (
-              <div key={item.id} className="relative pl-8 border-l-2 border-primary/30">
+              <div
+                key={item.id}
+                className="relative pl-8 border-l-2 border-primary/30"
+              >
                 <div className="absolute left-0 top-0 transform -translate-x-1/2 mt-1">
                   <div className="w-8 h-8 rounded-full bg-primary/10 border-2 border-primary flex items-center justify-center">
                     {item.type === "education" ? (
@@ -93,25 +105,35 @@ export default function Timeline() {
                     )}
                   </div>
                 </div>
-                <div className="mb-1 font-medium text-sm text-primary">{item.year}</div>
+                <div className="mb-1 font-medium text-sm text-primary">
+                  {item.year}
+                </div>
                 <Card className="border border-border hover:border-primary/50 transition-all">
                   <CardHeader className="pb-2">
                     <div className="flex justify-between items-start">
                       <CardTitle className="text-lg">{item.title}</CardTitle>
-                      <Badge variant={item.type === "education" ? "secondary" : "outline"}>
+                      <Badge
+                        variant={
+                          item.type === "education" ? "secondary" : "outline"
+                        }
+                      >
                         {item.type === "education" ? "Education" : "Experience"}
                       </Badge>
                     </div>
                   </CardHeader>
                   <CardContent>
-                    <div className="text-sm font-medium mb-2">{item.organization}</div>
-                    <div className="text-sm text-muted-foreground mb-2">{item.duration}</div>
+                    <div className="text-sm font-medium mb-2">
+                      {item.organization}
+                    </div>
+                    <div className="text-sm text-muted-foreground mb-2">
+                      {item.duration}
+                    </div>
                     <p className="text-sm">{item.description}</p>
                   </CardContent>
                 </Card>
               </div>
             ))}
-          </div>
+          </motion.div>
         ) : (
           // Desktop view - centered timeline
           <div className="relative">
@@ -129,7 +151,11 @@ export default function Timeline() {
                   </div>
 
                   {/* Content */}
-                  <div className={`flex ${index % 2 === 0 ? "flex-row" : "flex-row-reverse"} items-center`}>
+                  <div
+                    className={`flex ${
+                      index % 2 === 0 ? "flex-row" : "flex-row-reverse"
+                    } items-center`}
+                  >
                     <div className="w-5/12"></div>
 
                     {/* Center dot */}
@@ -143,23 +169,42 @@ export default function Timeline() {
                       </div>
                     </div>
 
-                    <div className="w-5/12">
+                    <motion.div
+                      className="w-5/12"
+                      initial={{ scale: 1, opacity: 0.5, translateX: 12 }}
+                      whileInView={{ scale: 1, opacity: 1, translateX: 0 }}
+                      whileHover={{ scale: 1.05 }}
+                    >
                       <Card className="border border-border hover:border-primary/50 transition-all">
                         <CardHeader className="pb-2">
                           <div className="flex justify-between items-start">
-                            <CardTitle className="text-lg">{item.title}</CardTitle>
-                            <Badge variant={item.type === "education" ? "secondary" : "outline"}>
-                              {item.type === "education" ? "Education" : "Experience"}
+                            <CardTitle className="text-lg">
+                              {item.title}
+                            </CardTitle>
+                            <Badge
+                              variant={
+                                item.type === "education"
+                                  ? "secondary"
+                                  : "outline"
+                              }
+                            >
+                              {item.type === "education"
+                                ? "Education"
+                                : "Experience"}
                             </Badge>
                           </div>
                         </CardHeader>
                         <CardContent>
-                          <div className="text-sm font-medium mb-2">{item.organization}</div>
-                          <div className="text-sm text-muted-foreground mb-2">{item.duration}</div>
+                          <div className="text-sm font-medium mb-2">
+                            {item.organization}
+                          </div>
+                          <div className="text-sm text-muted-foreground mb-2">
+                            {item.duration}
+                          </div>
                           <p className="text-sm">{item.description}</p>
                         </CardContent>
                       </Card>
-                    </div>
+                    </motion.div>
                   </div>
                 </div>
               ))}
@@ -168,5 +213,5 @@ export default function Timeline() {
         )}
       </div>
     </section>
-  )
+  );
 }
