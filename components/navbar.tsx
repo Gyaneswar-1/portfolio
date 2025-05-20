@@ -71,12 +71,11 @@ export default function Navbar() {
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between h-16">
           <div className="flex-shrink-0">
-            <motion.h1
-              className="text-xl font-bold text-primary"
-              initial={{ scale: 1.4 }}
+            <h1
+              className="text-[1.5rem] font-bold text-primary"
             >
               {greeting}
-            </motion.h1>
+            </h1>
           </div>
 
           <div className="hidden md:block">
