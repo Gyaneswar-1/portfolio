@@ -11,14 +11,19 @@ export default function About() {
         </h2>
         <div className="grid md:grid-cols-2 gap-8 items-center">
           <div className="flex justify-center">
-            <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-primary/20">
+            <motion.div
+              className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-primary/20"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1 }}
+            >
               <Image
                 src="/me.jpg"
                 alt="Profile"
                 fill
                 className="object-cover"
               />
-            </div>
+            </motion.div>
           </div>
           <div>
             <Card>
@@ -26,36 +31,55 @@ export default function About() {
                 <h3 className="text-2xl font-semibold mb-4">
                   Web Developer & UI/UX Enthusiast
                 </h3>
-                <p className="text-muted-foreground mb-4">
-                  I'm a passionate web developer with 5 years of experience
-                  creating modern web applications. I specialize in React.js,
-                  Next.js, and Tailwind CSS to build responsive and
-                  user-friendly interfaces.
-                </p>
+                <motion.p className="text-muted-foreground mb-4">
+                  I'm Gyaneswar Rout, a dedicated and creative web developer
+                  with a strong focus on building fast, accessible, and visually
+                  appealing web applications. I love translating ideas into
+                  functional and clean digital experiences.
+                </motion.p>
                 <p className="text-muted-foreground mb-6">
-                  My journey in web development started when I built my first
-                  website in college. Since then, I've worked with startups and
-                  established companies to bring their ideas to life.
+                  My journey began in college, where I created my first website
+                  and instantly fell in love with web development. Over the
+                  years, I've honed my skills in React.js, Next.js, and Tailwind
+                  CSS, I’m always excited to learn new
+                  technologies and push the boundaries of what’s possible on the
+                  web.
                 </p>
                 <div className="grid grid-cols-2 gap-4">
-                  <div>
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ duration: 1 }}
+                  >
                     <p className="font-medium">Name:</p>
                     <p className="text-muted-foreground">Gyaneswar Rout</p>
-                  </div>
-                  <div>
+                  </motion.div>
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ duration: 1 }}
+                  >
                     <p className="font-medium">Email:</p>
                     <p className="text-muted-foreground break-words">
                       gyaneswarrout12345@gmail.com
                     </p>
-                  </div>
-                  <div>
+                  </motion.div>
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ duration: 1 }}
+                  >
                     <p className="font-medium">Location:</p>
                     <p className="text-muted-foreground">Odisha, cuttack</p>
-                  </div>
-                  <div>
+                  </motion.div>
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ duration: 1 }}
+                  >
                     <p className="font-medium">Availability:</p>
                     <p className="text-muted-foreground">Freelance/Full-time</p>
-                  </div>
+                  </motion.div>
                 </div>
               </CardContent>
             </Card>

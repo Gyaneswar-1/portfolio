@@ -1,13 +1,19 @@
-"use client"
+"use client";
 
-import type React from "react"
-
-import { useState } from "react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Mail, MapPin, Phone } from "lucide-react"
+import type React from "react";
+import { useState, useRef } from "react";
+import emailjs from "@emailjs/browser";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Mail, MapPin, Phone } from "lucide-react";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -15,25 +21,50 @@ export default function Contact() {
     email: "",
     subject: "",
     message: "",
-  })
+  });
+  const [loader, setLoader] = useState(false);
+  const [active, setActive] = useState(true);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target
-    setFormData((prev) => ({ ...prev, [name]: value }))
-  }
+  const formRef = useRef<HTMLFormElement>(null);
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    // Here you would typically send the form data to your backend or a service like Formspree
-    console.log("Form submitted:", formData)
-    alert("Thank you for your message! I'll get back to you soon.")
-    setFormData({
-      name: "",
-      email: "",
-      subject: "",
-      message: "",
-    })
-  }
+    e.preventDefault();
+
+    if (formRef.current) {
+      setLoader(true);
+      emailjs
+      .sendForm(
+          "service_j5ig5np",
+          "template_k73lnni",
+          formRef.current,
+          "dZ78JcXc43GjAVRMG"
+        )
+        .then(
+          () => {
+            console.log("SUCCESS!");
+            setLoader(false);
+            setActive(false)
+            setFormData({
+              name: "",
+              email: "",
+              subject: "",
+              message: "",
+            });
+          },
+          (error) => {
+            console.error("FAILED...", error.text);
+            alert("Failed to send the message. Please try again later.");
+          }
+        );
+    }
+  };
 
   return (
     <section id="contact" className="py-20 px-4 md:px-6">
@@ -45,7 +76,8 @@ export default function Contact() {
           <div>
             <h3 className="text-2xl font-semibold mb-6">Get In Touch</h3>
             <p className="text-muted-foreground mb-8">
-              I'm always open to discussing new projects, creative ideas or opportunities to be part of your vision.
+              I'm always open to discussing new projects, creative ideas or
+              opportunities to be part of your vision.
             </p>
             <div className="space-y-6">
               <div className="flex items-center gap-4">
@@ -63,7 +95,9 @@ export default function Contact() {
                 </div>
                 <div>
                   <h4 className="font-medium">Email</h4>
-                  <p className="text-muted-foreground break-words sm:w-80 w-40">gyaneswarrout12345@gmail.com</p>
+                  <p className="text-muted-foreground break-words sm:w-80 w-40">
+                    gyaneswarrout12345@gmail.com
+                  </p>
                 </div>
               </div>
               <div className="flex items-center gap-4">
@@ -80,13 +114,22 @@ export default function Contact() {
           <Card>
             <CardHeader>
               <CardTitle>Send Me a Message</CardTitle>
-              <CardDescription>Fill out the form below and I'll get back to you as soon as possible.</CardDescription>
+              <CardDescription>
+                Fill out the form below and I'll get back to you as soon as
+                possible.
+              </CardDescription>
             </CardHeader>
             <CardContent>
-              <form onSubmit={handleSubmit} className="space-y-4">
+              <form ref={formRef} onSubmit={handleSubmit} className="space-y-4">
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div className="space-y-2">
-                    <Input placeholder="Your Name" name="name" value={formData.name} onChange={handleChange} required />
+                    <Input
+                      placeholder="Your Name"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      required
+                    />
                   </div>
                   <div className="space-y-2">
                     <Input
@@ -118,14 +161,28 @@ export default function Contact() {
                     required
                   />
                 </div>
-                <Button type="submit" className="w-full">
-                  Send Message
-                </Button>
+                {active ? (
+                  <>
+                    {loader ? (
+                      <Button type="submit" disabled className="w-full bg-gray-500">
+                        Loading...
+                      </Button>
+                    ) : (
+                      <Button type="submit" className="w-full">
+                        Send Message
+                      </Button>
+                    )}
+                  </>
+                ) : (
+                  <Button type="submit" disabled className="w-full bg-green-400">
+                    I'll get back to you soon
+                  </Button>
+                )}
               </form>
             </CardContent>
           </Card>
         </div>
       </div>
     </section>
-  )
+  );
 }

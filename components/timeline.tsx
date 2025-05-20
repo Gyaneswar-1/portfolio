@@ -22,7 +22,7 @@ export default function Timeline() {
     {
       id: 1,
       type: "education",
-      title: "Bachelor of Science in Computer Science",
+      title: "10th ",
       organization: "University of Technology",
       duration: "2016 - 2020",
       description:

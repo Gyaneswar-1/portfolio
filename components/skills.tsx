@@ -1,8 +1,19 @@
-import { Code, Database, Figma, FileJson, Globe, Layers, LayoutGrid, Palette, Server, Smartphone } from "lucide-react"
+import {
+  Code,
+  Database,
+  Figma,
+  FileJson,
+  Globe,
+  Layers,
+  LayoutGrid,
+  Palette,
+  Server,
+  Smartphone,
+} from "lucide-react";
 import { motion } from "motion/react";
 import { useState } from "react";
 export default function Skills() {
-  const [text,setText] = useState(false)
+  const [text, setText] = useState(false);
   const skills = [
     { name: "Java", link: "/tools/Java.png" },
     { name: "JavaScript", link: "/tools/Javascript.png" },
@@ -19,7 +30,7 @@ export default function Skills() {
     { name: "NodeJS", link: "/tools/Nodejs.png" },
     { name: "MongoDB", link: "/tools/Mongodb.png" },
     { name: "Linux", link: "/tools/Linux.png" },
-  ]
+  ];
 
   return (
     <section id="skills" className="py-20 px-4 md:px-6 ">
@@ -29,16 +40,27 @@ export default function Skills() {
         </h2>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 ">
           {skills.map((skill, index) => (
-            <div
-              key={index}
+            <motion.div
+              initial={{ opacity: 0, x: -50 }} // Start off-screen to the left
+          whileInView={{ opacity: 1, x: 0 }} // Animate to visible and centered
+          transition={{ duration: 1 }}
+          key={index}
               className="flex  flex-col items-center justify-center p-6 bg-card rounded-lg border border-border hover:border-primary/50 hover:shadow-md transition-all cursor-crosshair"
             >
-              <motion.img  initial={{scale:1}} whileHover={{scale:1.9}} src={skill.link} alt="" className="h-8  mb-2"/>
-              <motion.h3  className="font-medium text-center"  >{skill.name}</motion.h3>
-            </div>
+              <motion.img
+                initial={{ scale: 1 }}
+                whileHover={{ scale: 1.9 }}
+                src={skill.link}
+                alt=""
+                className="h-8  mb-2"
+              />
+              <motion.h3 className="font-medium text-center">
+                {skill.name}
+              </motion.h3>
+            </motion.div>
           ))}
         </div>
       </div>
     </section>
-  )
+  );
 }
